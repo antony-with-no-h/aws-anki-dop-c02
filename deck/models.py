@@ -1,19 +1,34 @@
 from genanki import Model
 
-ID = 1637254653
-
-SimpleCard = Model(
-    ID,
-    'What is this',
+Basic = Model(
+    1637254653,
+    'Basic',
     fields=[
-        {'name': 'Question'},
-        {'name': 'Answer'},
+        {'name': 'Front'},
+        {'name': 'Back'},
     ],
     templates=[
         {
-            'name': 'Card',
-            'qfmt': '{{Question}}',
-            'afmt': '{{FrontSide}}<hr id="answer">{{Answer}}',
+            'name': 'Card 1',
+            'qfmt': '{{Front}}',
+            'afmt': '{{FrontSide}}<hr id="answer">{{Back}}',
+        },
+    ]
+)
+
+# Type in the Answer
+BasicTITA = Model(
+    1545173770,
+    'Basic (type in the answer)',
+    fields=[
+        {'name': 'Front'},
+        {'name': 'Back'},
+    ],
+    templates=[
+        {
+            'name': 'Card 1',
+            'qfmt': '{{Front}}\n{{type:Back}}',
+            'afmt': '{{Front}}<hr id=answer>{{type:Back}}',
         },
     ]
 )

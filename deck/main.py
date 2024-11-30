@@ -1,5 +1,8 @@
-from genanki import Deck, Package, Note 
-from .models import SimpleCard
+from genanki import Deck, Package
+from .models import Basic, BasicTITA
+
+from . import skillbuilder
+from . import udemy_sdlc
 
 DECKID = 1347655101
 
@@ -9,22 +12,9 @@ def generate():
         'AWS DOP-C02'
     )
 
-    notes = [
-        Note(
-            model=SimpleCard,
-            fields=[
-                'What is CloudWatch, and what are it\'s primary use cases?',
-                'Performance Monitoring<br>Log Management<br>Alerting<br>Application Insights<br>Automated Actions'
-            ]
-        ),
-        Note(
-            model=SimpleCard,
-            fields=[
-                '<strong>Five</strong design principles of <strong>Operational Excellence</strong>',
-                'Ops. as Code<br/>Frequent small reversible changes<br>Refine operations procedures frequently<br>Anticipate failure<br>Learn from all operational failures'
-            ]
-        ),
-    ]
+    notes = []
+    notes.extend(skillbuilder.notes)
+    notes.extend(udemy_sdlc.notes)
 
     for note in notes:
         deck.add_note(note)
