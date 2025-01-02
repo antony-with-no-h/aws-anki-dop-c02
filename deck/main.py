@@ -2,7 +2,7 @@ from genanki import Deck, Package
 from .models import Basic, BasicTITA
 
 from . import skillbuilder
-from . import udemy_sdlc
+from . import domain_sdlc
 
 DECKID = 1347655101
 
@@ -14,7 +14,7 @@ def generate():
 
     notes = []
     notes.extend(skillbuilder.notes)
-    notes.extend(udemy_sdlc.notes)
+    notes.extend(domain_sdlc.notes)
 
     for note in notes:
         deck.add_note(note)
